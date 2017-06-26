@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+      <ul id="show"></ul>
+    </div>
+    
+    <script>
+    
+        var myProto = function(){
+        var node = document.createElement("LI");
+
+        myProto.prototype.age = 0;
+        myProto.prototype.name = "no name";
+        myProto.prototype.state = "no state";
+
+         myProto.prototype.print = function(){
+            var textnode = document.createTextNode("la edad es de " + this.age + ", su nombre es " + this.name  + " y es de: " + this.state);
+            node.appendChild(textnode);
+            document.getElementById("show").appendChild(node);
+          }
+
+
+        };
+
+        var person1 = new myProto();
+        person1.age = 10;
+        person1.name = "laura";
+        person1.state = "CA";
+        person1.print();
+
+        // here we can create a place holder object with default values
+
+        var person2 = new myProto();
+        //person1.age = 10;
+        //person1.name = "laura";
+        //person1.name = "CA";
+        person2.print();
+
+        var person3 = new myProto();
+        person3.age = 40;
+        //person3.name = "Ian";
+        person3.state = "SF";
+        person3.print();
+        
+    </script>
+    
+</body>
+</html>
